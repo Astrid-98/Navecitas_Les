@@ -5,6 +5,7 @@ using UnityEngine;
 public class Disparo : MonoBehaviour
 {
     [SerializeField] private GameObject enemigoPrefab;
+    [SerializeField] private float danhoDisparo;
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +29,17 @@ public class Disparo : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
+    private void OnTriggerEnter(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemigo")) 
+        {
+            Destroy(gameObject); //Me destruyo (soy el disparo). Es igual a Destroy(this.gameObject);
+            //Destroy(other.gameObject); Lo quito.
+
+            // Acceddmos al enemigo, accedemos al codigo del otro script
+            other.gameObject.GetComponent<Enemigo>().RecibirDanho(danhoDisparo);
+
+        }
+    }
+   
 }
