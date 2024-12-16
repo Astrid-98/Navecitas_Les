@@ -17,7 +17,7 @@ public class Enemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3().normalized * velocidad * Time.deltaTime); 
+        transform.Translate(new Vector3(-1, 0, 0).normalized * velocidad * Time.deltaTime); 
     }
     public void RecibirDanho(float danhoRecibido)
     {
@@ -28,7 +28,5 @@ public class Enemigo : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
 }
