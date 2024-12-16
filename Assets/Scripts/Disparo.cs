@@ -29,7 +29,7 @@ public class Disparo : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-    private void OnTriggerEnter(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemigo")) 
         {
